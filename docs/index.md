@@ -10,7 +10,7 @@ hide:
 
 <div markdown>
 
-# Basis Wiki
+# Docker Schulung
 
 <div class="grid cards fancy" markdown>
 - [:material-call-split: **Topic 1**](content/1.md)
@@ -23,13 +23,13 @@ hide:
 
 <div style="margin-left: 15px" markdown>
 
-![](assets/Logo_Qualidy_cmyk.svg)
+![](assets/docker.png)
 
 Hier können weitere Inhalte rein.
 
-[:fontawesome-solid-external-link: Externer Link mit neuen Tab](https://pictogrammers.com/library/mdi/){ target=_blank rel="noopener noreferrer" }
+[:fontawesome-solid-external-link: Docker.com](https://www.docker.com/){ target=_blank rel="noopener noreferrer" }
 
-{{ youtube_video("https://www.youtube.com/embed/chPCpYNJe_Q?si=frU_Z_VwSGnPWEPF") }}
+{{ youtube_video("https://www.youtube.com/embed/b0HMimUb4f0?si=4aHVLdAo3sJhFFfx") }}
 
 </div>
 
