@@ -1,0 +1,24 @@
+title: Erstes GUI – Label und zwei Buttons
+question: |
+  Erstelle ein WinForms-Projekt, füge ein Label `LblAnzeige` und zwei Buttons `CmdHallo`, `CmdEnde` ein.
+
+  - Form-Text: „Mein erstes Projekt“
+  
+  - `LblAnzeige` zunächst leer, mit Rahmen (`FixedSingle`)
+
+  $$
+  \frac{10}{12}x
+  $$
+solution: |
+  ```csharp
+  // Eigenschaften per Designer setzen.
+  // Optional per Code im Form_Load:
+  private void Form1_Load(object sender, EventArgs e)
+  {
+      this.Text = "Mein erstes Projekt";
+      LblAnzeige.Text = "";
+      LblAnzeige.BorderStyle = BorderStyle.FixedSingle;
+  }
+  ```
+solution_video: https://www.youtube.com/embed/n0NM4xbNzyE?si=VtGnkT2LiBNYdRq0
+tip: Hier noch ein Tip

@@ -1,0 +1,8 @@
+.vs
+.vscode
+venv
+.venv
+__pycache__
+
+notes.md
+questions.md
