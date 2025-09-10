@@ -1,0 +1,13 @@
+title: 1. Übung — Aufgabe 7
+question: |
+  Ordne den Begriff der richtigen Bedeutung zu:
+
+  | Begriff           | Bedeutung                                        |
+  | ----------------- | ------------------------------------------------ |
+  | `docker ps`       | A. Zeigt laufende Container                      |
+  | `docker build`    | B. Erstellt ein Image aus einem Dockerfile       |
+  | `docker rm`       | C. Löscht einen Container                         |
+  | `docker image ls` | D. Zeigt vorhandene Images                       |
+  | `docker run`      | E. Startet einen neuen Container aus einem Image |
+solution: |
+

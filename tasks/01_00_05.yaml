@@ -1,0 +1,22 @@
+title: 1. Übung — Aufgabe 4
+question: |
+  
+  1. Erkläre mit eigenen Worten, was Docker ist und wofür es verwendet wird.
+  
+  2. Warum verwendet man Container in der Softwareentwicklung? Nenne mindestens drei Vorteile von Containern gegenüber klassischer Softwareinstallation.
+  
+  3. Warum verwendet man Container in der Softwareentwicklung? Nenne mindestens drei Vorteile von Containern gegenüber klassischer Softwareinstallation.
+  
+  4. Welche Rolle spielt das Dockerfile? Was beschreibt es?
+  
+  5. Was versteht man unter dem Begriff "Port-Mapping" in Docker?
+  
+  6. Was passiert beim Befehl `docker pull nginx`?
+  
+  7. Wie kann man alle laufenden Container anzeigen? Wie auch gestoppte?
+  
+  8. Was passiert, wenn man versucht, denselben Container mit `docker run` erneut zu starten?
+  
+  9. Wie kann man einen gestoppten Container löschen?
+solution: |
+

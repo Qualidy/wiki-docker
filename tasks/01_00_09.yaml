@@ -1,0 +1,21 @@
+title: 1. Übung — Aufgabe 8
+question: |
+  Beantworte folgende Fragen:
+
+  1. Was ist ein Tag in Docker und wofür wird er verwendet?
+  
+  2. Wie sieht die allgemeine Syntax eines Docker-Images mit Tag aus? Gib ein Beispiel.
+  
+  3. Was passiert, wenn man ein Image ohne Tag startet, z.B. `docker run nginx`?
+  
+  4. Warum ist der Tag `latest` problematisch in produktiven Umgebungen?
+  
+  5. Was versteht man unter "Digest-Pinning"?
+  
+  6. Wie unterscheidet sich der Digest von einem Tag?
+  
+  7. Welche Vorteile bietet es, feste Versions-Tags z.B. `python:3.11` zu verwenden?
+  
+  8. Ein Update des Images `node:latest` hat deinen Code plötzlich funktionsunfähig gemacht. Was hätte man im Voraus tun können, um das zu vermeiden?
+solution: |
+

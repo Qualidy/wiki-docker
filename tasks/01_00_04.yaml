@@ -1,0 +1,6 @@
+title: 1. Übung — Aufgabe 3
+question: |
+  Beschreibe mit eigenen Worten, warum es sinnvoll ist, in Docker zwischen Images und Containern zu unterscheiden.
+  Welche Vorteile bringt diese Trennung im Vergleich zu klassischen Installationen?
+solution: |
+

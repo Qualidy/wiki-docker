@@ -1,0 +1,11 @@
+title: 1. Übung — Aufgabe 5
+question: |
+  Was bewirkt der folgende Befehl:
+
+  ```bash
+  docker run -d -p 8080:80 nginx
+  ```
+
+  Erkläre die Bedeutung der einzelnen Optionen.
+solution: |
+

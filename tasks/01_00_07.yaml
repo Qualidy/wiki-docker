@@ -1,0 +1,14 @@
+title: 1. Übung — Aufgabe 6
+question: |
+  
+  1. Was unterscheidet Docker von einer klassischen virtuellen Maschine (VM)?
+  
+  2. Wie hilft Docker in einem Entwicklerteam mit unterschiedlichen Betriebssystemen?
+  
+  3. Wie stellt Docker sicher, dass eine Anwendung überall gleich funktioniert?
+  
+  4. Was sind potenzielle Herausforderungen oder Risiken bei der Arbeit mit Docker?
+  
+  5. Wann ist es sinnvoll, ein eigenes Image zu erstellen statt ein fertiges zu verwenden?
+solution: |
+

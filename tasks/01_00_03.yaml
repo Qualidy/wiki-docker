@@ -1,0 +1,18 @@
+title: 1. Übung — Aufgabe 2
+question: |
+  Führe die folgenden Befehle im Terminal aus und beschreibe, was sie jeweils tun:
+
+  ```bash
+  docker pull hello-world
+  docker run hello-world
+  docker image ls
+  docker ps -a
+  ```
+
+  Beantworte danach:
+  
+  - Wie viele Images und wie viele Container siehst du?
+  
+  - Welche Unterschiede fallen dir bei `docker image ls` vs. `docker ps -a` auf?
+solution: |
+

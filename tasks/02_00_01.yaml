@@ -1,0 +1,35 @@
+title: Windows-Installation — Wiederholung
+question: |
+  Bearbeite die folgenden Schritte und beantworte die Fragen. Führe die Befehle in CMD oder PowerShell aus.
+
+  1) System/WSL prüfen
+  
+  - Führe `wsl` aus. Was wird ausgegeben? Ist WSL vorhanden?
+  
+  - Falls nicht vorhanden: Welcher Befehl installiert WSL? (Hinweis: `wsl --install`)
+  
+  - Prüfe deine Windows-Version mit `winver`. Welche Version ist installiert?
+
+  2) Hello-World testen
+  
+  - Führe `docker run hello-world` aus und beschreibe in 2–3 Sätzen, was dabei passiert (Download des Images, Start eines Containers, Ausgabe, automatisches Beenden).
+
+  3) Prüfen, was angelegt wurde
+  
+  - Zeige alle Images: `docker image ls` – ist `hello-world` vorhanden?
+  
+  - Zeige alle Container (auch gestoppte): `docker ps -a` – siehst du einen Container aus `hello-world`?
+
+  4) Aufräumen: Container entfernen
+  
+  - Entferne den erzeugten Container: `docker container rm <CONTAINER-ID>` (Hinweis: ID aus `docker ps -a`)
+  
+  - Erkläre kurz, warum man das Image oft nicht löschen kann, solange noch ein Container darauf verweist.
+
+  5) Aufräumen: Image entfernen
+  
+  - Entferne das Image: `docker rmi hello-world`
+  
+  - Prüfe erneut mit `docker image ls`, ob es weg ist.
+solution: |
+

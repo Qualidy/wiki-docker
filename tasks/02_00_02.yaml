@@ -1,0 +1,41 @@
+title: Windows-Installation — Fehler im Code finden
+question: |
+  Im folgenden Konsolenprotokoll haben sich Fehler eingeschlichen. Finde sie und schreibe die korrigierten Befehle auf.
+
+  ```powershell
+  # Setup und Hello World testen
+  wsl --instal
+  winver
+  docker pull hello world
+  docker run -d hello-world
+  docker ps --all
+  docker container rm hello-world
+  docker image rm hello_world
+  ```
+
+solution: |
+  Korrekturen und kurze Begründung:
+
+  ```powershell
+  # WSL installieren (falls nötig) – Schreibfehler korrigiert
+  wsl --install
+
+  # Windows-Version prüfen (Dialog) – korrekt, kein Docker-Befehl
+  winver
+
+  # Image-Namen mit Bindestrich, nicht mit Leerzeichen
+  docker pull hello-world
+
+  # Hello-World braucht kein -d, einmalig ausführen reicht
+  docker run hello-world
+
+  # Schalter ist -a, nicht --all
+  docker ps -a
+
+  # Container mit ID/Name entfernen, nicht das Image
+  docker container rm <CONTAINER-ID>
+
+  # Danach kann das Image entfernt werden
+  docker rmi hello-world
+  ```
+

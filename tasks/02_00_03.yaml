@@ -1,0 +1,42 @@
+﻿title: Windows-Installation - Docker-Befehle zuordnen
+question: |
+  Ordne die folgenden Docker-Befehle der passenden Bedeutung (A-F) zu.
+  Die Reihenfolge ist absichtlich gemischt.
+
+  Befehle:
+
+  - docker container rm <CONTAINER-ID>
+
+  - docker rmi hello-world
+
+  - docker ps -a
+
+  - docker version
+
+  - docker image ls
+
+  - docker run hello-world
+
+  Bedeutungen:
+
+  A. Zeigt Client/Server-Versionen (CLI/Engine)
+
+  B. Startet einen Container aus einem Image und fuehrt dessen Standardprogramm aus
+
+  C. Listet lokale Images
+
+  D. Listet Container (auch gestoppte)
+
+  E. Loescht ein lokales Image
+
+  F. Entfernt einen Container
+
+solution: |
+  Zuordnung:
+
+  - docker version -> A
+  - docker run hello-world -> B
+  - docker image ls -> C
+  - docker ps -a -> D
+  - docker rmi hello-world -> E
+  - docker container rm <CONTAINER-ID> -> F

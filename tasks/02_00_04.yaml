@@ -1,0 +1,42 @@
+title: Windows-Installation — Dockerfile-Befehle zuordnen
+question: |
+  Ordne die Dockerfile-Anweisungen (1–6) den Bedeutungen (A–F) zu.
+
+  Anweisungen:
+
+  1. `FROM ubuntu:22.04`
+
+  2. `RUN apt-get update && apt-get install -y curl`
+
+  3. `COPY . /app`
+
+  4. `WORKDIR /app`
+
+  5. `EXPOSE 8080`
+
+  6. `CMD ["nginx", "-g", "daemon off;"]`
+
+  Bedeutungen:
+
+  A. Legt das Basis-Image fest
+
+  B. Führt Befehle während des Image-Builds aus (erstellt Schicht)
+
+  C. Kopiert Dateien aus dem Build-Kontext ins Image
+
+  D. Setzt das Arbeitsverzeichnis für nachfolgende Anweisungen
+
+  E. Deklariert einen Port, den der Container nutzt (Dokumentation)
+
+  F. Standardbefehl, der beim Containerstart ausgeführt wird
+
+solution: |
+  Zuordnung:
+
+  - 1 → A (Basis-Image)
+  - 2 → B (Build-Schritt)
+  - 3 → C (Dateien kopieren)
+  - 4 → D (Arbeitsverzeichnis)
+  - 5 → E (Port-Deklaration, kein Publish)
+  - 6 → F (Startkommando)
+
