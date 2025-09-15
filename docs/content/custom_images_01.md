@@ -16,7 +16,7 @@ Viruelle Entwicklungsumgebung aktivieren:
 \MySite>.venv\Scripts\activate
 ```
 
-Mit `CTRL + SHIFT + P` öfnnen wir in VS-Code "Command Palatre", wählen "Python: Select Interpreter" aus und wechselt zum `.venv` wo "Recommended" steht:
+Mit `CTRL + SHIFT + P` öffnen wir in VS-Code "Command Palette", wählen "Python: Select Interpreter" aus und wechseln zum `.venv` wo "Recommended" steht:
 
 ![](../assets/docker_92.png)
 

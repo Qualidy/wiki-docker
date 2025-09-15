@@ -51,9 +51,10 @@ hide:
 
 [:fontawesome-solid-external-link: Docker.com](https://www.docker.com/){ target=_blank rel="noopener noreferrer" }
 
-{{ youtube_video("https://www.youtube.com/embed/b0HMimUb4f0?si=4aHVLdAo3sJhFFfx") }}
+{{ youtube_video("https://www.youtube.com/embed/b0HMimUb4f0?si=4aHVLdAo3sJhFFfx", expanded=True) }}
 
 </div>
 
 </div>
+
 

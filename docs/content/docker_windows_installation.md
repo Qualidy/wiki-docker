@@ -78,7 +78,7 @@ Docker Desktop bietet eine benutzerfreundliche Möglichkeit, mit Containern zu a
 Docker Desktop enthält unter anderem:
 
 - **Docker Engine:**<br>
-  Das ist die Laufzeitumgebung für die Container bzw. der zentrale Diennst, der Container baut, startet und verwaltet. Es ist also das technische Rückgrat von allem, was Docker ermöglicht.
+  Das ist die Laufzeitumgebung für die Container bzw. der zentrale Dienst, der Container baut, startet und verwaltet. Es ist also das technische Rückgrat von allem, was Docker ermöglicht.
 
 - **Docker CLI:**<br>
   CLI steht für Command Line Interface, also Kommandozeilen-Schnittstelle. Die Docker CLI ist das Werkzeug, mit dem man Docker über die Eingabe von Textbefehlen steuern kann – ganz ohne grafische Oberfläche. Ein CLI-Programm wird im Terminal (z.B. PowerShell, CMD, bash...) verwendet. Es basiert auf Textbefehlen, die vom Benutzer eingegeben werden, und gibt ebenfalls Text als Antwort zurück.
@@ -169,7 +169,7 @@ Hier sieht man einen Eintrag mit dem Namen `hello-world` und genau diesen Contai
 docker container rm [CONTAINER-ID]
 ```
 
-Achtet darauf dass ihr die `[CONTAINER-ID]` durch eine Zahl ersetzt. Anschließend sollte dieser Container aus der Luste unter "Containers" verschwinden. Nun können wir das `hello-world` Image entfernen:
+Achtet darauf dass ihr die `[CONTAINER-ID]` durch eine Zahl ersetzt. Anschließend sollte dieser Container aus der Liste unter "Containers" verschwinden. Nun können wir das `hello-world` Image entfernen:
 
 ```
 docker rmi hello-world
@@ -177,7 +177,7 @@ docker rmi hello-world
 
 ![](../assets/docker_29.png)
 
-Unter Images dürfe nun kein Image mit dem Namen `hello-world` vorhanden sein. Damit bleibt die lokale Umgebung sauber und übersichtlich.
+Unter Images dürfte nun kein Image mit dem Namen `hello-world` vorhanden sein. Damit bleibt die lokale Umgebung sauber und übersichtlich.
 
 
 ## Übungsaufgabe: Wiederholung Windows-Installation und Hello World

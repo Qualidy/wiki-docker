@@ -10,21 +10,9 @@ Ein physikalischer Server ist im Grunde genommen ein großer, leistungsstarker C
 
 Physikalische Server befinden sich oft in Rechenzentren, wo sie spezielle Aufgaben erfüllen, wie z.B. das Hosten von Websites, das Speichern von Datenbanken oder das Ausführen von Anwendungen. Dies ist der traditionelle Weg, wie Softwareingenieure die programmierten Anwendungen ausführten bzw. entwickelt hatten.
 
-<div class="grid" markdown>
-
-<div markdown>
 So könnte ein Rechenzentrum mit Servern aussehen:
 
-</div>
-
-<div markdown>
 ![](../assets/docker_02.jpg){ width="70%" }
-
-</div>
-
-</div>
-
-
 
 Man kann die physischen Server auch in verschiedene Kategorien unterteilen wie z.B.:
 
@@ -63,20 +51,7 @@ Virtuelle Maschinen haben die Art und Weise, wie wir Serverressourcen nutzen, re
 
 Stellt euch vor, ihr habt ein altes Nintendo-Spiel, das ihr früher auf einer Nintendo-Konsole gespielt habt. Jetzt habt ihr keine Konsole mehr, sondern nur noch den Computer. Ihr möchtet das alte Spiel trotzdem spielen. Hier kommt der Emulator zum Einsatz. Ihr ladet euch ein Emulator-Programm auf den Computerherunter, das die Nintendo-Konsole nachahmt. Ihr ladet auch das Nintendo-Spiel auf den Computer. Anschließend startet ihr den Emulator und öffnet das Spiel darin. Der Emulator verhält sich wie eine Nintendo-Konsole. Euer Computer denkt, er wäre die Konsole, und das Spiel denkt, es würde auf der echten Nintendo-Konsole laufen. So könnt ihr das Nintendo-Spiel auf euerem Computer spielen, obwohl es eigentlich für die Konsole gedacht ist.
 
-<div class="grid" markdown>
-
-<div markdown>
-**Emulator-Illustration:** Software ahmt Hardware nach, Programme laufen in einer simulierten Umgebung.
-
-</div>
-
-<div markdown>
-![](../assets/docker_04.png){ width="70%" }
-
-</div>
-
-</div>
-
+![](../assets/docker_04.png)
 
 **Zurück zu dem VMs:**
 
@@ -85,20 +60,9 @@ Eine VM (sowas wie ein Software-Emulator) läuft auf einem physischen Server, nu
 <br>
 Man kann sich der Hypervisor wie einen Verwalter vorstellen, der die Ressourcen eines Computers so aufteilt, dass mehrere unabhängige VMs gleichzeitig laufen können.
 
-<div class="grid" markdown>
-
-<div markdown>
 **Hypervisor:** Teilt Ressourcen des Host-Servers auf mehrere isolierte VMs auf.
 
-</div>
-
-<div markdown>
 ![](../assets/docker_05.png){ width="70%" }
-
-</div>
-
-</div>
-
 
 Die moderne Softwareentwicklung auf VMs, hat sich stark von der traditionellen Entwicklung auf physischen Servern weiterentwickelt. Angenommen, ein Softwareunternehmen entwickelt eine Webanwendung:
 
@@ -190,16 +154,16 @@ Zusammengefasst: Mit Docker spielt es keine Rolle, welches Betriebssystem die En
 
 | Aspekt                      | Physischer Server                                | VM                                                      | Container                                                    |
 | --------------------------- | ------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ |
-| Isolation                   | Jeder Server ist vollständig isoliert            | Jede VM ist isoliert, teilt jedoch denselben Hypervisor | Jeder Container ist isoliert, teil aber den Kernel           |
-| Ressourcen                  | Hat exklusive Hardware-Ressourcen                | Zwischen VMs aufgeteilt                                 | Effizeintere Nuzung durch Kernel-Teilung                     |
+| Isolation                   | Jeder Server ist vollständig isoliert            | Jede VM ist isoliert, teilt jedoch denselben Hypervisor | Jeder Container ist isoliert, teilt aber den Kernel           |
+| Ressourcen                  | Hat exklusive Hardware-Ressourcen                | Zwischen VMs aufgeteilt                                 | Effizientere Nutzung durch Kernel-Teilung                     |
 | Performance                 | Hohe Leistung, direkter Zugriff auf Hardware     | Geringfügige Leistungseinbußen durch Hypervisor         | Sehr geringe Leistungseinbußen da (kein Betriebssystem)      |
-| Skalierbarkeit              | Erfordert physische Hardwareänderungen           | Flexibel durch Hinzufügen/Entfernen von VMs             | Sehr schnelle Skalierung durch Starten/Stopen von Containern |
+| Skalierbarkeit              | Erfordert physische Hardwareänderungen           | Flexibel durch Hinzufügen/Entfernen von VMs             | Sehr schnelle Skalierung durch Starten/Stoppen von Containern |
 | Portabilität                | Nicht möglich wegen physischer Hardware          | Zwischen unterschiedlichen Hypervisoren                 | Sehr portabel auf verschiedenen Umgebungen                   |
 | Startzeit                   | Sehr Langsam (kann Minuten dauern)               | Schneller als physische Server                          | Sekundenschnell (am schnellsten)                             |
-| Isolationsstufe             | Hoche Isolation                                  | Mittlere Isolation zwischen VMs                         | Isoliert, bis auf Kernel                                     |
+| Isolationsstufe             | Hohe Isolation                                  | Mittlere Isolation zwischen VMs                         | Isoliert, bis auf Kernel                                     |
 | Komplexität                 | Je nach Anwendung (oft schwierig wegen Hardware) | Komplexe Verwaltung von mehreren VMs und Hypervisoren   | Sehr einfache Verwaltung von Containern                      |
 | Entwicklungsgeschwindigkeit | Langsame Bereitstellung und Entwicklung          | Schneller als bei physischen Servern                    | Am schnellsten                                               |
-| Anwendungsbereiche          | Spezialisierte dauerhafte Workloads              | Vielseitig für z.B. Testumgebung                        | Idela für Cloud, Microservices, DevOps...                    |
+| Anwendungsbereiche          | Spezialisierte dauerhafte Workloads              | Vielseitig für z.B. Testumgebung                        | Ideal für Cloud, Microservices, DevOps...                    |
 
 
 In der Praxis arbeiten Data Engineers mit vielen verschiedenen Tools, Programmiersprachen, Frameworks und Datenquellen – etwa Python, Spark, Kafka, Airflow, Datenbanken wie PostgreSQL oder MongoDB sowie Cloud-Speicherdiensten. Jedes dieser Systeme hat eigene Abhängigkeiten, Versionen und Konfigurationen. Hier kommt Docker ins Spiel.

@@ -39,13 +39,13 @@ Nun können wir in den `frontend`-Ordner navigieren:
 cd frontend
 ```
 
-Nun erstellen wir ein neues Image, basierend auf dem `dockerfile` im akuellen Verzeichnis und geben ihm den Namen `mysite`:
+Nun erstellen wir ein neues Image, basierend auf dem `dockerfile` im aktuellen Verzeichnis und geben ihm den Namen `mysite`:
 
 ```
 docker build -t mysite .
 ```
 
-- `-t` teht für "tag", also Etikett oder Bezeichner, dieser Name hilft später dabei, das Image zu starten oder es weiterzugeben.
+- `-t` steht für "tag", also Etikett oder Bezeichner, dieser Name hilft später dabei, das Image zu starten oder es weiterzugeben.
 
 - Der Punkt `.` gibt an, welches Verzeichnis als sogenannter Build-Kontext verwendet werden soll. Das bedeutet, Docker schaut in diesem Verzeichnis nach dem Dockerfile und hat nur Zugriff auf Dateien in diesem Ordner (und Unterordner). Docker hat beim Bauen nur Zugriff auf Dateien innerhalb des angegebenen Kontextes – also nicht auf übergeordnete Ordner!
 
@@ -55,7 +55,7 @@ Nun sollte unser Image mit dem Namen `mysite` in Docker Desktop sichtbar sein:
 
 ![](../assets/docker_79.png)
 
-Wir können ihn ausführen, aber momentan ist es ncihts weiter als eine Kopie vom `nginx`-Image. Wir werden nun weiter unser `dockerfile` anpassen. Dazu erstellen wir unter dem `frontend`-Ordnet einen `static`-Ordnet mit einer html-Datei, welche den Namen `index.html` hat:
+Wir können ihn ausführen, aber momentan ist es nichts weiter als eine Kopie vom `nginx`-Image. Wir werden nun weiter unser `dockerfile` anpassen. Dazu erstellen wir unter dem `frontend`-Ordner einen `static`-Ordner mit einer html-Datei, welche den Namen `index.html` hat:
 
 ![](../assets/docker_80.png)
 
@@ -147,7 +147,7 @@ Der Container startet Nginx – und der Nginx-Server zeigt jetzt unsere eigene T
 
 ![](../assets/docker_82.png)
 
-Es ist mometan eine reine Frontend-Anwendung, man sollte auch Todo-Items hinzufügen können:
+Es ist momentan eine reine Frontend-Anwendung, man sollte auch Todo-Items hinzufügen können:
 
 ![](../assets/docker_83.png)
 

@@ -14,7 +14,7 @@ Wenn man möchte, dass der Container im Hintergrund läuft und das Terminal sofo
 docker run -d -p 8080:80 nginx
 ```
 
-Der Container wird hier wie gewohnt gestartet, aber er läuft jetzt im Hintergrund. Das Terminal steht direkt für neue Befehle zur Verfügung Außerdem wird im Terminal noch eine sogenannte Container-ID ausgegeben:
+Der Container wird hier wie gewohnt gestartet, aber er läuft jetzt im Hintergrund. Das Terminal steht direkt für neue Befehle zur Verfügung. Außerdem wird im Terminal noch eine sogenannte Container-ID ausgegeben:
 
 ![](../assets/docker_40.png)
 
