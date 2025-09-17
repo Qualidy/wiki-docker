@@ -26,7 +26,7 @@ Man kann die physischen Server auch in verschiedene Kategorien unterteilen wie z
 
 - Druckserver
 
-Traditionell wird Software auf physischen Servern entwickelt bzw. auch bereitgestellt. Der Ablauf könnte folgendermaßen aussehen:
+Traditionell wird diese Software auf physischen Servern entwickelt bzw. auch bereitgestellt. Der Ablauf könnte folgendermaßen aussehen:
 
 1. Entwickler arbeiten zunächst auf ihren lokalen Maschinen, um den Code zu schreiben und grundlegende Tests durchzuführen. Für komplexere Tests richteten sie Entwicklungsumgebungen auf physischen Servern ein, welche die Produktionsumgebung nachahmten.
 2. Nach der Entwicklung wurde die Software auf Testservern bereitgestellt, die ebenfalls physische Server waren. Hier wurden verschiedene Tests durchgeführt, wie z.B. Integrationstests und Systemtests, um sicherzustellen, dass sie Software korrekt funktionierte.

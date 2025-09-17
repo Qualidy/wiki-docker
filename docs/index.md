@@ -26,6 +26,8 @@ hide:
 
 - [ :material-play-circle-outline: Container im Hintergrund ausführen ](content/container_background_run.md)
 
+- [ :material-play-circle-outline: Containerinhalt live bearbeiten ](content/container_webinhalt_bearbeiten.md)
+
 - [ :material-tag-outline: Tagging von Docker-Images ](content/tagging.md)
 
 - [ :material-clipboard-check-outline: Übung ](content/uebung_1.md)
@@ -37,6 +39,8 @@ hide:
 - [ :material-database-outline: Datenpersistenz in Docker ](content/persistence.md)
 
 - [ :material-hammer-wrench: Eigene Docker-Images erstellen - Einstieg ](content/custom_images.md)
+
+- [ :simple-render: Hosting ](content/host.md)
 
 - [ :material-layers-outline: Docker Layers ](content/layers.md)
 

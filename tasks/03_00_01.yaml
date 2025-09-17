@@ -1,0 +1,72 @@
+title: Container im Hintergrund - Webinhalt bearbeiten
+question: |
+  Führe die folgenden Schritte aus und beschreibe für jede Zeile kurz, was passiert (ein Satz pro Zeile).
+
+  1) Container im Hintergrund starten
+  
+  ```bash
+  docker run -d --name web-server -p 8080:80 nginx:1.27.0
+  ```
+
+  2) Im Browser öffnen (Host OS)
+  
+  ```
+  http://localhost:8080
+  ```
+
+  3) In den Container einloggen (interaktive Shell)
+  
+  ```bash
+  docker exec -it web-server sh
+  ```
+
+  4) Inhalt im Container auflisten
+  
+  ```bash
+  ls
+  ```
+
+  5) Vim testen (vermutlich noch nicht installiert)
+  
+  ```bash
+  vim
+  ```
+
+  6) Paketquellen aktualisieren und Vim installieren
+  
+  ```bash
+  apt-get update
+  apt-get install vim
+  ```
+
+  7) Vim starten und wieder schließen
+  
+  ```bash
+  vim
+  :q    # oder Änderungen verwerfen mit :q!
+  ```
+
+  8) Standard-Webseite ansehen
+  
+  ```bash
+  cat /usr/share/nginx/html/index.html
+  ```
+
+  9) Standard-Webseite bearbeiten
+  
+  ```bash
+  vim /usr/share/nginx/html/index.html
+  ```
+
+  10) Browser neu laden und auf der Webseite die Änderung prüfen
+
+  11) Container-Shell verlassen
+  
+  ```bash
+  exit
+  ```
+tip: |
+  - Installation ohne Rückfrage: `apt-get install -y vim`
+  - Vim-Grundlagen: `i` (Einfügen), `Esc` (Normalmodus), `:wq` (speichern+beenden), `:q!` (ohne Speichern beenden)
+  - Nicht persistent: Änderungen im Container gehen nach Entfernen verloren (`docker rm`); für Persistenz Volumes verwenden
+solution: |

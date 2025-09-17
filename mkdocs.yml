@@ -7,12 +7,14 @@ nav:
   - Container vs. Images: content/containers_vs_images.md
   - Port Mapping in Docker: content/port_mapping.md
   - Container im Hintergrund ausführen: content/container_background_run.md
+  - Container live bearbeiten: content/container_webinhalt_bearbeiten.md
   - Tagging von Docker-Images: content/tagging.md
   - Übung: content/uebung_1.md
   - Docker Runtimes: content/runtimes.md
   - Slim- und Alpine-Images: content/slim_alpine_images.md
   - Datenpersistenz in Docker: content/persistence.md
   - Eigene Docker-Images erstellen - Einstieg: content/custom_images.md
+  - Hosting: content/host.md
   - Docker Layers: content/layers.md
   - Eigene Docker-Images erstellen - Erweitert: content/custom_images_01.md
 theme:
