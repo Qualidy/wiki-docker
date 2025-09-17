@@ -26,7 +26,7 @@ hide:
 
 - [ :material-play-circle-outline: Container im Hintergrund ausführen ](content/container_background_run.md)
 
-- [ :material-play-circle-outline: Containerinhalt live bearbeiten ](content/container_webinhalt_bearbeiten.md)
+- [ :material-file-edit: Containerinhalt live bearbeiten ](content/container_webinhalt_bearbeiten.md)
 
 - [ :material-tag-outline: Tagging von Docker-Images ](content/tagging.md)
 
