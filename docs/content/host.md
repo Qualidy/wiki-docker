@@ -12,43 +12,21 @@ Lege einen neuen Ordner an, z. B. `meine-website/`, mit folgendem Inhalt:
 meine-website/
 ├─ Dockerfile
 ├─ index.html
-└─ .dockerignore   (optional)
-```
-
-**Beispiel `.dockerignore` (optional, hält das Image schlank):**
-```gitignore
-.git
-node_modules
-*.log
-.DS_Store
 ```
 
 ---
 
 ## 1) Dateien: `Dockerfile` & `index.html`
 
-### `Dockerfile` (Nginx, schlank & production-ready)
+Kopiere den folgenden Inhalt in die Dateien:
+
+### `Dockerfile`
 ```dockerfile
-# ---- Basisimage: kleiner, sicherer Nginx ----
 FROM nginx:alpine
-
-# (Optional) Maintainer-Info
-LABEL maintainer="dein-name <dein-email@example.com>"
-
-# Statische Website nach /usr/share/nginx/html kopieren
 COPY index.html /usr/share/nginx/html/index.html
-
-# (Optional) Eigene Nginx-Configs wären hier möglich:
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Port 80 freigeben (Nginx Standard)
-EXPOSE 80
-
-# Nginx im Vordergrund starten (Default-CMD des Images)
-# CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### `index.html` (minimal, aber hübsch)
+### `index.html`
 ```html
 <!doctype html>
 <html lang="de">
@@ -86,7 +64,7 @@ EXPOSE 80
 ## 2) Anmeldung bei Docker Hub
 
 1. Öffne **https://hub.docker.com** und erstelle ein Konto (oder einloggen).
-2. Lege ein Repository an: **Repositories → Create Repository**  
+2. Lege ein Repository an: **Hub → Repositories → Create Repository**  
    - Name: `meine-website`  
    - Visibility: Public (oder Private, dann später Token bei Render hinterlegen)
 
@@ -94,36 +72,58 @@ EXPOSE 80
 
 ## 3) Image lokal bauen & zu Docker Hub pushen
 
-> Ersetze `DEINUSER` unten durch **deinen** Docker-Hub-Benutzernamen (z. B. `viktorreichert`).
+Öffne eine Kommandozeile in deinem Ordner `meine-website` und führe die folgenden Befehle aus.
+
+Baue zunächst das Image:
 
 ```bash
-# In den Projektordner wechseln
-cd meine-website
-
-# Image lokal bauen
 docker build -t meine-website:3.0 .
+```
 
-# Lokal testen (optional)
+Baue lokal den Container uns starte ihn, um ihn zu testen:
+
+```bash
 docker run --rm -p 8080:80 meine-website:3.0
-# -> http://localhost:8080 im Browser öffnen
+```
 
-# Bei Docker Hub anmelden
+Um zu prüfen, ob deine Container einwandfrei läuft, kannst du http://localhost:8080 im Browser öffnen.
+
+Melde dich nun bei Docker Hub an, indem du in die Kommandozeile eingibst:
+
+```bash
 docker login
+```
 
-# Für Docker Hub taggen
+Damit das hochladen des Images auf Docker Hub korrekt funktioniert, muss du dem Image ein spezielles Tag geben.
+Dies kannst du wie folgt tun. 
+
+⚠ Ersetze `DEINUSER` unten durch **deinen** Docker-Hub-Benutzernamen (z. B. `viktorreichert`)
+
+```bash
 docker tag meine-website:3.0 DEINUSER/meine-website:3.0
+```
 
-# Push zu Docker Hub
+Du kannst nun dein Image auf Docker Hub uploaden mit dem folgenden Befehl:
+
+```bash
 docker push DEINUSER/meine-website:3.0
 ```
 
-**Pull-URL (zur Kontrolle):**
+⚠ Wenn der Upload nicht erlaubt wird, melde dich von Docker Hub ab
+
 ```bash
-docker pull DEINUSER/meine-website:3.0
+docker logout
 ```
 
-- Vollqualifiziert wäre das: `docker.io/DEINUSER/meine-website:3.0`  
-- Kurzform (üblich): `DEINUSER/meine-website:3.0`
+und danach wieder an.
+
+```bash
+docker login
+```
+
+Dann sollte der Upload funktionieren.
+
+Gehe auf dein Repository im Docker Hub (drücke ggf. `F5`) und du solltest das hochgeladene Image sehen.
 
 ---
 
