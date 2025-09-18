@@ -23,38 +23,29 @@ Kopiere den folgenden Inhalt in die Dateien:
 ### `Dockerfile`
 ```dockerfile
 FROM nginx:alpine
+
 COPY index.html /usr/share/nginx/html/index.html
+
+RUN chown nginx:nginx /usr/share/nginx/html/index.html
 ```
 
 ### `index.html`
 ```html
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meine Website – Hallo Render + Docker Hub</title>
-  <style>
-    :root { --bg: #0f172a; --fg: #e2e8f0; --accent:#38bdf8; }
-    html,body { height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; background:var(--bg); color:var(--fg); }
-    .wrap { min-height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:3rem; }
-    h1 { font-size:clamp(2rem, 5vw, 3rem); margin:0 0 1rem; }
-    p { opacity:.9; max-width:60ch; margin:0 auto 1.5rem; line-height:1.6; }
-    .badge { display:inline-block; padding:.5rem 1rem; border:1px solid var(--accent); color:var(--accent); border-radius:999px; font-weight:600; letter-spacing:.02em; }
-    a { color:var(--accent); text-decoration:none; }
-    a:hover { text-decoration:underline; }
-  </style>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <main>
-      <div class="badge">Docker + Nginx + Render</div>
-      <h1>Es läuft! 🚀</h1>
-      <p>Diese statische Seite wird aus einem <strong>Docker Image</strong> mit <strong>Nginx</strong> ausgeliefert.
-         Das Image liegt auf <strong>Docker Hub</strong> und wird auf <strong>Render</strong> gehostet.</p>
-      <p>Viel Erfolg beim Deployment! ✨</p>
-    </main>
-  </div>
+<h1>Willkommen auf meiner ersten Webseite!</h1>
+
+Ich bin ja so froh, endlich Docker zu lernen.
+
 </body>
 </html>
 ```
@@ -77,13 +68,13 @@ COPY index.html /usr/share/nginx/html/index.html
 Baue zunächst das Image:
 
 ```bash
-docker build -t meine-website:3.0 .
+docker build -t meine-website:1.0 .
 ```
 
 Baue lokal den Container uns starte ihn, um ihn zu testen:
 
 ```bash
-docker run --rm -p 8080:80 meine-website:3.0
+docker run --rm -p 8080:80 meine-website:1.0
 ```
 
 Um zu prüfen, ob deine Container einwandfrei läuft, kannst du http://localhost:8080 im Browser öffnen.
@@ -100,13 +91,13 @@ Dies kannst du wie folgt tun.
 ⚠ Ersetze `DEINUSER` unten durch **deinen** Docker-Hub-Benutzernamen (z. B. `viktorreichert`)
 
 ```bash
-docker tag meine-website:3.0 DEINUSER/meine-website:3.0
+docker tag meine-website:1.0 DEINUSER/meine-website:1.0
 ```
 
 Du kannst nun dein Image auf Docker Hub uploaden mit dem folgenden Befehl:
 
 ```bash
-docker push DEINUSER/meine-website:3.0
+docker push DEINUSER/meine-website:1.0
 ```
 
 ⚠ Wenn der Upload nicht erlaubt wird, melde dich von Docker Hub ab
@@ -142,9 +133,9 @@ Gehe auf dein Repository im Docker Hub (drücke ggf. `F5`) und du solltest das h
    - Falls privat: Docker-Hub-Login/Access-Token hinterlegen.
 4. **Image URL:**  
    ```
-   DEINUSER/meine-website:3.0
+   DEINUSER/meine-website:1.0
    ```
-   (optional vollqualifiziert: `docker.io/DEINUSER/meine-website:3.0`)
+   (optional vollqualifiziert: `docker.io/DEINUSER/meine-website:1.0`)
 5. **Region:** EU-Region (z. B. Frankfurt),  
    **Service Type:** Web Service,  
    **Instance Type/Plan:** nach Bedarf (Free für Tests).
@@ -152,22 +143,6 @@ Gehe auf dein Repository im Docker Hub (drücke ggf. `F5`) und du solltest das h
 7. **Create Web Service** → Render zieht das Image und startet den Container.
 8. Nach dem Deploy bekommst du eine öffentliche URL, z. B.  
    `https://meine-website.onrender.com`
-
----
-
-## 6) Hinweise & Troubleshooting
-
-- **Port/Health:** Das Nginx-Image lauscht auf `80`. In Render deshalb **Port 80** konfigurieren.  
-- **Private Images:** In den Service-Settings bei Render **Docker Hub Credentials** hinterlegen (Username + Access Token mit `read:packages`).  
-- **Image nicht gefunden?** Prüfe Tag/Name exakt (alles kleingeschrieben).  
-- **Neu deployen:** In Render → Service öffnen → **Manual Deploy → Deploy latest image**.  
-- **Logs prüfen:** In Render → Service → **Logs**.
-
----
-
-## 7) Optional: Automatisch neu bauen (CI)
-
-Wenn deine Seite sich ändert, baue lokal neu und pushe den gleichen Tag oder nutze **versionierte Tags** (z. B. `3.1`, `3.2`) und aktualisiere in Render den Tag. Alternativ kannst du Render „Auto-Deploy latest image“ aktivieren (wenn unterstützt).
 
 ---
 
