@@ -54,7 +54,7 @@ Ich bin ja so froh, endlich Docker zu lernen.
 
 ## 2) Anmeldung bei Docker Hub
 
-1. Öffne **https://hub.docker.com** und erstelle ein Konto (oder einloggen).
+1. Öffne [:fontawesome-solid-external-link: hub.docker.com](https://www.hub.docker.com/){ target=_blank rel="noopener noreferrer" }und erstelle ein Konto (oder einloggen).
 2. Lege ein Repository an: **Hub → Repositories → Create Repository**  
    - Name: `meine-website`  
    - Visibility: Public (oder Private, dann später Token bei Render hinterlegen)
@@ -120,7 +120,7 @@ Gehe auf dein Repository im Docker Hub (drücke ggf. `F5`) und du solltest das h
 
 ## 4) Anmeldung bei Render
 
-1. Öffne **https://render.com** und registriere dich (GitHub/GitLab/E-Mail).
+1. Öffne [:fontawesome-solid-external-link: https://render.com](https://render.com){ target=_blank rel="noopener noreferrer" } und registriere dich (GitHub/GitLab/E-Mail).
 2. Free-Plan reicht für Tests.
 
 ---
