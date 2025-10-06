@@ -38,9 +38,6 @@ Traditionell wird diese Software auf physischen Servern entwickelt bzw. auch ber
 
 Diese Prozesse sind jedoch sehr zeitaufwändig und erfordern eine sorgfältige Planung und Verwaltung der physischen Serverressourcen.
 
-
-**Hier kommt noch mehr wichtiger Text**
-
 ## Virtuelle Maschinen (VMs)
 
 Nach dem die Grundlagen physischer Server und ihre Rolle in der traditionellen Softwareentwicklung verstanden wurde, werden wir uns einem moderneren Konzept wenden: Den virtuellen Maschinen.
