@@ -17,6 +17,8 @@ nav:
   - Hosting: content/host.md
   - Docker Layers: content/layers.md
   - Eigene Docker-Images erstellen - Erweitert: content/custom_images_01.md
+  - Devcontainer: content/devcontainer.md
+
 theme:
   name: material
   palette:
