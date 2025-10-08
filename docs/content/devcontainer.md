@@ -73,7 +73,7 @@ projektname/
 Kann man zuerst einmal die Dev Containers Erweiterung von Microsoft installieren:
 ![](../assets/docker_102.jpg)
 
-Dann Docker Desktop starten, als nächstes drückt man Strg+Shift+P oder View -> Command Palette und gibt ein „Dev Containers: Reopen in Container“. Beim erstmaligen ausführen wird man gefragt ob man Docker in WSL installieren will, das bestätigt man mit ja. Anschließend öffnet sich der Container und die Requirements werden installiert. Hiernach kann ganz normal mit Python die app.py starten, also mit python3 app.py, dann sollte es wie folgt aussehen, wenn man localhost:3000 im Browser öffnet:
+Dann Docker Desktop starten, als nächstes drückt man Strg+Shift+P oder View -> Command Palette und gibt ein „Dev Containers: Reopen in Container“. Beim erstmaligen ausführen wird man gefragt ob man Docker in WSL installieren will, das bestätigt man mit ja. Danach muss man falls noch nicht geschehen Docker Desktop herunterladen und starten. Anschließend öffnet sich der Container und die Requirements werden installiert. Hiernach kann ganz normal mit Python die app.py starten, also mit python3 app.py, dann sollte es wie folgt aussehen, wenn man localhost:3000 im Browser öffnet:
 
 ![](../assets/docker_104.jpg)
 
