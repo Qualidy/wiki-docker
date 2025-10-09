@@ -15,7 +15,7 @@ services:
       context: ./backend
       dockerfile: dockerfile
     ports:
-      - 8008:8000
+      - 8000:8000
 
   frontend:
     image: mysite-frontend
