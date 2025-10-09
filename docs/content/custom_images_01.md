@@ -65,6 +65,7 @@ async def create_todo(item: TodoItemCreate):
     global id_counter
     new_todo = TodoItem(id=id_counter, content=item.content)
     todos.append(new_todo)
+    id_counter += 1
     return new_todo
 
 @app.get("/todos", response_model=list[TodoItem])
@@ -261,6 +262,7 @@ async def create_todo(item: TodoItemCreate):
     global id_counter
     new_todo = TodoItem(id=id_counter, content=item.content)
     todos.append(new_todo)
+    id_counter += 1
     return new_todo
 
 @app.get("/todos", response_model=list[TodoItem])

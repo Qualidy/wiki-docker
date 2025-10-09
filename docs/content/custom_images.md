@@ -27,7 +27,7 @@ Außerdem installieren wir noch die Docker Extension, damit wir die Autovervolls
 Man erstellt in fast allen Fällen nicht von Null aus ein Dockerfile, sodnern baut auf anderen Docker-Images auf. Wir schreiben in die `dockerfile`:
 
 ```dockerfile
-FROM ngin
+FROM nginx
 ```
 
 Die erste Zeile ist der erste und wichtigste Befehl in einem Dockerfile. Sie sagt Docker:

@@ -45,6 +45,8 @@ hide:
 - [ :material-layers-outline: Docker Layers ](content/layers.md)
 
 - [ :material-hammer-screwdriver: Eigene Docker-Images erstellen - Erweitert ](content/custom_images_01.md)
+- [ :material-view-compact: Docker Compose](content/compose.md)
+
 - [ :material-microsoft-visual-studio-code: Devcontainer](content/devcontainer.md)
 </div>
 
