@@ -1,0 +1,980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../slim_alpine_images/">
+      
+      
+        <link rel="next" href="../custom_images/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Datenpersistenz in Docker - Dockerschulung</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datenpersistenz-in-docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Dockerschulung" class="md-header__button md-logo" aria-label="Dockerschulung" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dockerschulung
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Datenpersistenz in Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Dockerschulung" class="md-nav__button md-logo" aria-label="Dockerschulung" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Dockerschulung
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung in Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker_windows_installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation auf Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers_vs_images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Container vs. Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../port_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Port Mapping in Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_background_run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Container im Hintergrund ausführen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_webinhalt_bearbeiten/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Container live bearbeiten
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tagging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tagging von Docker-Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebung_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtimes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Runtimes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slim_alpine_images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slim- und Alpine-Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Datenpersistenz in Docker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Datenpersistenz in Docker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#volume-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume Mount
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bind-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bind Mount
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eigene Docker-Images erstellen - Einstieg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hosting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Layers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_images_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eigene Docker-Images erstellen - Erweitert
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devcontainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Devcontainer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="datenpersistenz-in-docker">Datenpersistenz in Docker<a class="headerlink" href="#datenpersistenz-in-docker" title="Permanent link">&para;</a></h1>
+<p>Wenn ein Docker-Container gestartet wird, hat er ein eigenes, isoliertes Dateisystem. Dieses Dateisystem basiert auf dem zugehörigen Image und wird jedes Mal beim Start neu erstellt – frisch, sauber, leer. Das bedeutet:</p>
+<ul>
+<li>
+<p>Alle Daten, die während der Laufzeit des Containers gespeichert werden, gehen beim Stoppen oder Neustarten verloren.</p>
+</li>
+<li>
+<p>Ein Webserver-Container vergisst z. B. Log-Dateien, eine Datenbank vergisst alle gespeicherten Datensätze, und Skripte, die Dateien schreiben, starten wieder bei null.</p>
+</li>
+</ul>
+<p>Docker-Container sind standardmäßig flüchtig. Um Daten dauerhaft zu speichern, benötigt es sogenannte Persistenzmechanismen.
+<br>
+<br>
+In der Praxis gibt es kaum Anwendungen, die vollständig ohne dauerhafte Datenspeicherung auskommen. Fast alle Anwendungen generieren Daten zur Laufzeit, die über die Lebensdauer eines Containers hinaus erhalten bleiben müssen.</p>
+<p>Betrachten wir folgendes Beispiel: </p>
+<ul>
+<li>
+<p><code>f = '/data.txt'</code>: Wir erstellen eine Datei <code>data.txt</code> im Wurzelverzeichnis. </p>
+</li>
+<li>
+<p><code>open(f, 'a').write('Ran!\n')</code>: Die Datei <code>data.txt</code> wird im Anhängemodus <code>a</code> geöffnet – falls sie nicht existiert, wird sie erstellt. Dann wird <code>Ran! + Zeilenumbruch</code> angehängt.</p>
+</li>
+<li>
+<p><code>print(open(f).read())</code>: Öffnet die Datei im Lesemodus (Standard) und gibt den gesamten Inhalt auf der Konsole aus</p>
+</li>
+</ul>
+<p>Dazu führen wir folgenden Befehl aus:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker run --rm python:3.12 python -c &quot;f=&#39;/data.txt&#39;; open(f, &#39;a&#39;).write(&#39;Ran!\n&#39;); print(open(f).read())&quot;
+</code></pre></div></td></tr></table></div>
+<p><img alt="" src="../../assets/docker_68.png" /></p>
+<p>Aber egal wie oft wir diesen Befehl ausführen, wird immer nur "Ran!" ausgegeben. Die <code>data.txt</code> Datei wird also nicht erweitert, weil bei jedem Container-Start alles auf den Ausgangszustand gesetzt wird:</p>
+<p><img alt="" src="../../assets/docker_69.png" /></p>
+<p>Um diesem Problem zu lösen, bietet Docker eine Lösung. Docker erlaubt es, Verzeichnisse von außen in einen Container "hineinzumounten". Dadurch können Daten auch dann erhalten bleiben, wenn der Container gestoppt oder gelöscht wird. Docker kennt zwei grundlegende Mechanismen, um externen Speicher in Container einzubinden:</p>
+<table>
+<thead>
+<tr>
+<th>Art</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volumes</td>
+<td>Speicherbereiche, die von Docker verwaltet werden. Diese liegen außerhalb des Containers und sind vom Host nicht direkt sichtbar, aber dauerhaft gespeichert.</td>
+</tr>
+<tr>
+<td>Bind Mounts</td>
+<td>Ein Ordner vom Hostsystem (also z.B. dein Computer) wird direkt in den Container eingebunden – z.B. der Projektordner oder eine Konfigurationsdatei.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="volume-mount">Volume Mount<a class="headerlink" href="#volume-mount" title="Permanent link">&para;</a></h2>
+<p>Betrachten wir Volume-Mount als erstes. Wir erstellen ein Volume namens <code>mydata</code> und mounten es in den Container unter <code>/data</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker run --rm -v mydata:/data python:3.12 python -c &quot;f=&#39;/data/data.txt&#39;; open(f, &#39;a&#39;).write(&#39;Ran!\n&#39;); print(open(f).read())&quot;
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p>Im Container wird die Datei <code>/data/log.txt</code> beschrieben.</p>
+</li>
+<li>
+<p>Bei jedem neuen Containerlauf bleibt der Inhalt erhalten, weil das Volume persistent ist.</p>
+</li>
+<li>
+<p><code>mydata</code> ist der Name eines Docker-Volue</p>
+</li>
+<li>
+<p><code>/data</code> ist das Verzeichnis im Container, in das dieses Volume eingebunden wird</p>
+</li>
+</ul>
+<p><img alt="" src="../../assets/docker_70.png" /></p>
+<p>Wir könnten nun den Container mit einem interaktiven Terminal starten und nochmal das Volume <code>mydata</code> mounten:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker run -it -v mydata:/data python:3.12 bash
+</code></pre></div></td></tr></table></div>
+<p>Nun bekommt man ein Terminal im Container. Hier geben wir ein:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls data
+</code></pre></div></td></tr></table></div>
+<p>Hier müsste die Datei <code>data.txt</code> liegen, wir können sie auslesen:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cat /data/data.txt
+</code></pre></div></td></tr></table></div>
+<p>Das Kommando <code>cat</code> ist die Abkürzung für "concatenate" und wird im Terminal (z.B. in Linux, macOS oder im Docker-Container) verwendet, um den Inhalt einer Datei auf der Konsole anzuzeigen.</p>
+<p><img alt="" src="../../assets/docker_71.png" /></p>
+<p>Volume-Mount eignet sich hervorragend für persistente Datenbanken oder Cacheverzeichnisse, die unabhängig vom Host sind.</p>
+<h2 id="bind-mount">Bind Mount<a class="headerlink" href="#bind-mount" title="Permanent link">&para;</a></h2>
+<p>Ein Bind Mount ist ideal für die lokale Entwicklung, bei der Dateien vom Host in den Container gespiegelt werden sollen. Es wird also ein Ordner auf dem Host-Rechner mit einem Pfad im Container verknüpft. Der Container greift dann direkt auf diesen Ordner zu.
+<br>
+<br>
+Stellen wir uns vor, im aktuellen Arbeitsverzeichnis <code>C:\Users\olexa\OneDrive\Dokumente\my_test_project</code> liegt ein einfaches Python-Skript <code>main.py</code>.</p>
+<p><img alt="" src="../../assets/docker_72.png" /></p>
+<p>Das Skript soll im Container ausgeführt werden, aber die Datei <code>log.txt</code> soll lokal im Projektverzeichnis bleiben. Wir starten den Container mit Bind-Mount:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker run --rm -v &quot;C:\Users\olexa\OneDrive\Dokumente\my_test_project:/app&quot; -w /app python:3.12 python main.py
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><code>-v "C:\...:\app"</code> Das Verzeichnis auf deinem Host (Windows) wird in den Container unter <code>/app</code> eingebunden.</p>
+</li>
+<li>
+<p><code>w /app</code> Setzt das Arbeitsverzeichnis im Container auf <code>/app</code>. Alle Befehle starten dort.</p>
+</li>
+<li>
+<p><code>python main.py</code> Führt im Container den Python-Interpreter aus und übergibt ihm das Skript main.py.</p>
+</li>
+</ul>
+<p>Nach Ausführung des Befehls wird:</p>
+<ul>
+<li>
+<p>eine Datei <code>log.txt</code> im Windows-Ordner angelegt (falls nicht vorhanden),</p>
+</li>
+<li>
+<p><code>Script wurde ausgeführt</code> hineingeschrieben,</p>
+</li>
+</ul>
+<p><img alt="" src="../../assets/docker_73.png" /></p>
+<p>Man kann den Container auch interaktiv starten und sich ansehen, ob der Pfad <code>/app</code> korrekt eingebunden ist:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker run -it -v &quot;C:\Users\olexa\OneDrive\Dokumente\my_test_project:/app&quot; -w /app python:3.12 bash
+</code></pre></div></td></tr></table></div>
+<p>Anschließend gibt man ein:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ls
+cat log.txt
+</code></pre></div></td></tr></table></div>
+<p><img alt="" src="../../assets/docker_74.png" /></p>
+<p>Bei einem Bind Mount handelt es sich also um eine direkte Verknüpfung (kein Kopieren!) zwischen einem Ordner auf dem Hostsystem (z.B. ein lokaler Windows-Ordner) und einem Verzeichnis im Container. Alles, was im Container unter <code>/app</code> passiert (z.B. Datei schreiben, löschen, editieren), passiert tatsächlich direkt im Host-Verzeichnis. Man kann sich das vorstellen wie einen gemeinsamen Ordner, den zwei Betriebssysteme gleichzeitig verwenden.
+<br>
+<br>
+Betrachten wir folgende Grafik für das Verständnis:</p>
+<p><img alt="" src="../../assets/docker_75.png" /></p>
+<p><strong>1. Der Container:</strong><br></p>
+<ul>
+<li>Wenn in einem Container z. B. eine Datei geschrieben wird z.B. <code>log.txt</code>, ohne Bind Mount oder Volume, dann ist sie nur hier gespeichert – und geht beim Löschen des Containers verloren.</li>
+</ul>
+<p><strong>2. Volumes:</strong><br></p>
+<ul>
+<li>Dieser Ort ist perfekt für Produktivdatenbanken, Caches oder Speicherdaten, die z.B. mehrere Container gemeinsam nutzen sollen. </li>
+</ul>
+<p><strong>3. Bind Mounts:</strong><br></p>
+<ul>
+<li>Ebenfalls persistent, aber im Gegensatz zu Volumes ist der Speicherort ein echter Ordner auf dem Host-Rechner.</li>
+</ul>
+<p><strong>4. tmpfs:</strong><br></p>
+<ul>
+<li>Wird oft als "temporärer Speicher" verwendet – ist aber nicht persistent. Daten bleiben nur im RAM und gehen beim Stopp verloren. Das ist eher für sensible, flüchtige Daten (z.B. Passwörter) oder Performance-Optimierung geeignet. Darauf sol lerstmal nicht näher eingegangen werden.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../slim_alpine_images/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Slim- und Alpine-Images">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Slim- und Alpine-Images
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../custom_images/" class="md-footer__link md-footer__link--next" aria-label="Next: Eigene Docker-Images erstellen - Einstieg">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Eigene Docker-Images erstellen - Einstieg
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
